@@ -39,5 +39,42 @@ export default {
       validation: (Rule) => Rule.min(1000),
       // TODO: Add custom input component
     },
+    // This next field is the reference to the toppings. A TYPE array OF TYPE Reference TO TYPE topping.
+    {
+      name: 'toppings',
+      title: 'Toppings',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'topping' }],
+        },
+      ],
+    },
   ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'image',
+      // Select the toppings array, then grab the first thing, then grab the name.
+      topping0: 'toppings.0.topping_name',
+      topping1: 'toppings.1.topping_name',
+      topping2: 'toppings.2.topping_name',
+      topping3: 'toppings.3.topping_name',
+    },
+    prepare: ({ title, media, ...toppings }) => {
+      // 1. Filter undefined toppings out
+      const tops = Object.values(toppings).filter(
+        (topping) => topping !== undefined
+      );
+      //   SAME AS LINE 67 ---- const tops = Object.values(toppings).filter(Boolean);
+
+      // 2. Return the preview onject for the pizza
+      return {
+        title,
+        media,
+        subtitle: tops.join(', '),
+      };
+    },
+  },
 };
