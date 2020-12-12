@@ -1,4 +1,10 @@
 var plugins = [{
+      plugin: require('/Users/danielfuqua/workspace/slick-slices/gatsby/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
+      plugin: require('/Users/danielfuqua/workspace/slick-slices/gatsby/node_modules/gatsby-source-sanity/gatsby-ssr'),
+      options: {"plugins":[],"projectId":"ick99ojp","dataset":"production","watchMode":true,"token":"skdqnblixnbRqWHTk8oVm09f1aFyI8RENsEidTTIpkp40cgrhraxpZyiNddqjzsFbdKuML1AFVUXCadxe43HPTROchJOaja9oVYMJamtlNkfWJpIl8n0BhAvNSHnEkq7YZOX3rsuJuIg0djgKXNpIbgLqmvFHBsvHMnGGHRHkummBaK7LUBD"},
+    },{
       plugin: require('/Users/danielfuqua/workspace/slick-slices/gatsby/gatsby-ssr'),
       options: {"plugins":[]},
     }]
