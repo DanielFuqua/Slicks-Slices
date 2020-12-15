@@ -9,7 +9,7 @@ export default {
   icon,
   fields: [
     {
-      name: 'topping_name',
+      name: 'name',
       title: 'Topping Name',
       type: 'string',
       description: 'What is the name of the topping?',
@@ -26,7 +26,7 @@ export default {
   ],
   preview: {
     select: {
-      name: 'topping_name',
+      name: 'name',
       vegetarian: 'vegetarian',
     },
     prepare: (fields) => ({

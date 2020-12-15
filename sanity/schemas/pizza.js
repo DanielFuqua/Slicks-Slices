@@ -1,4 +1,5 @@
 import { MdLocalPizza as icon } from 'react-icons/md';
+import PriceInput from '../components/PriceInput';
 
 export default {
   // Computer Name
@@ -6,6 +7,7 @@ export default {
   // visible title
   title: 'Pizzas',
   type: 'document',
+
   icon,
   fields: [
     {
@@ -37,7 +39,8 @@ export default {
       type: 'number',
       description: 'Price of the pizza in cents',
       validation: (Rule) => Rule.min(1000),
-      // TODO: Add custom input component
+      // TODO: Add custom inputComponent
+      inputComponent: PriceInput,
     },
     // This next field is the reference to the toppings. A TYPE array OF TYPE Reference TO TYPE topping.
     {
@@ -57,10 +60,10 @@ export default {
       title: 'name',
       media: 'image',
       // Select the toppings array, then grab the first thing, then grab the name.
-      topping0: 'toppings.0.topping_name',
-      topping1: 'toppings.1.topping_name',
-      topping2: 'toppings.2.topping_name',
-      topping3: 'toppings.3.topping_name',
+      topping0: 'toppings.0.name',
+      topping1: 'toppings.1.name',
+      topping2: 'toppings.2.name',
+      topping3: 'toppings.3.name',
     },
     prepare: ({ title, media, ...toppings }) => {
       // 1. Filter undefined toppings out
